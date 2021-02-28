@@ -1,40 +1,91 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
+  <q-layout view="lhh Lpr lFf">
+    <q-header elevated reveal>
+      <div class="row justify-center">
+        <q-toolbar class="col-12 col-sm-8">
+          <!-- <q-btn
           flat
           dense
           round
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
-        />
+        /> -->
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+          <q-toolbar-title shrink>Wulfen</q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+          <q-space></q-space>
+
+          <!-- <q-tabs inline-label no-caps align="center" class="col-6 text-white"> -->
+          <q-btn-dropdown auto-close stretch flat label="Lore">
+            <q-list>
+              <q-item clickable @click="navigate('lore/introduction')">
+                <q-item-section>Intoduction</q-item-section>
+              </q-item>
+              <q-item clickable @click="navigate('lore/heraldic-tribes')">
+                <q-item-section>Heraldic Tribes</q-item-section>
+              </q-item>
+              <q-item clickable @click="navigate('lore/shard-of-the-cosmos')">
+                <q-item-section>Shard of the Cosmos</q-item-section>
+              </q-item>
+              <q-item clickable @click="navigate('lore/birth-of-magic')">
+                <q-item-section>Birth of Magic</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <q-btn-dropdown auto-close stretch flat label="World">
+            <q-list>
+              <q-item clickable @click="navigate('world/currency')">
+                <q-item-section>Currency</q-item-section>
+              </q-item>
+              <q-item clickable @click="navigate('world/fauna')">
+                <q-item-section>Fauna</q-item-section>
+              </q-item>
+              <q-item clickable @click="navigate('world/flora')">
+                <q-item-section>Flora</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <!-- <q-route-tab to="Photos" exact replace label="Photos" /> -->
+          <!-- </q-tabs> -->
+
+          <q-space></q-space>
+
+          <q-tabs>
+            <q-route-tab align="right" to="about" exact replace label="About" />
+          </q-tabs>
+        </q-toolbar>
+      </div>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered content-class="bg-grey-1">
+    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above>
       <q-list>
         <q-item-label header class="text-grey-8">
           Essential Links
         </q-item-label>
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
       </q-list>
-    </q-drawer>
+    </q-drawer> -->
 
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer class="bg-grey-8 text-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" />
+          </q-avatar>
+          Title
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 </template>
 
 <script lang="ts">
+import { defineComponent, ref } from '@vue/composition-api';
 import EssentialLink from 'components/EssentialLink.vue';
 
 const linksData = [
@@ -82,8 +133,6 @@ const linksData = [
   },
 ];
 
-import { defineComponent, ref } from '@vue/composition-api';
-
 export default defineComponent({
   name: 'MainLayout',
   components: { EssentialLink },
@@ -92,6 +141,11 @@ export default defineComponent({
     const essentialLinks = ref(linksData);
 
     return { leftDrawerOpen, essentialLinks };
+  },
+  methods: {
+    navigate(tab: string) {
+      void this.$router.push('/' + tab);
+    },
   },
 });
 </script>
