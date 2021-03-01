@@ -22,6 +22,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.1
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: build
-          FOLDER: 'docs' # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'docs' must be placed here.
+          branch: build
+          folder: 'docs' # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'docs' must be placed here.
