@@ -196,9 +196,11 @@
         <p>{{ legalText.trim() }}</p>
         <q-space />
         <div class="row">
-          <q-btn v-for="link in essentialLinks" :key="link.title" :to="link.link" flat avatar>
-            <q-icon :name="link.icon" />
-          </q-btn>
+          <a v-for="link in essentialLinks" :key="link.title" :to="link.link">
+            <q-btn flat avatar>
+              <q-icon :name="link.icon" />
+            </q-btn>
+          </a>
         </div>
       </q-toolbar>
     </q-footer>
@@ -216,7 +218,7 @@ const linksData = [
     title: 'Twitter',
     caption: 'twitter.com/WulfenSol',
     icon: 'fab fa-twitter',
-    link: 'twitter.com/WulfenSol',
+    link: 'https://twitter.com/WulfenSol',
   },
   {
     title: 'Twitch',
