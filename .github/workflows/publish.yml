@@ -6,7 +6,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       - run: yarn install
       - run: npm run-script build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.1
+        uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           branch: build
           folder: 'docs' # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'docs' must be placed here.
