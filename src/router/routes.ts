@@ -25,18 +25,17 @@ const routes: RouteConfig[] = [
       { path: 'fauna', component: () => import('pages/World.vue') },
     ],
   },
-  // {
-  //   path: '/lore',
-  //   component: () => import('layouts/Lore.vue'),
-  //   children: [{ path: '', component: () => import('pages/Index.vue') }],
-  // },
+  {
+    path: '/design',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/Design.vue') }],
+  },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  // Any other route:
   {
     path: '*',
-    // component: () => import('pages/Error404.vue'),
-    redirect: '/',
+    component: () => import('pages/Error404.vue'),
+    // redirect: '/',
   },
 ];
 

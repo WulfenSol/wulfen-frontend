@@ -74,12 +74,13 @@
 
     <q-footer class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title>
+        <q-toolbar-title shrink>
           <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" />
+            <q-icon name="info" style="font-size:2em" />
           </q-avatar>
-          Title
+          Legal
         </q-toolbar-title>
+        <p>{{ legalText.trim() }}</p>
       </q-toolbar>
     </q-footer>
   </q-layout>
@@ -88,6 +89,8 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
 import EssentialLink from 'components/EssentialLink.vue';
+
+import legalText from 'assets/legal.txt';
 
 const linksData = [
   {
@@ -141,7 +144,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
     const essentialLinks = ref(linksData);
 
-    return { leftDrawerOpen, essentialLinks };
+    return { leftDrawerOpen, essentialLinks, legalText };
   },
   methods: {
     navigate(tab: string) {
@@ -152,3 +155,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+footer > .q-toolbar > p {
+  white-space: pre-wrap;
+  margin: 0;
+}
+</style>
