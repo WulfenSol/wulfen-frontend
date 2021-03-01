@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,3 +18,9 @@ jobs:
         with:
           node-version: 12
       - run: npm run-script build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.1
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: build
+          FOLDER: 'docs' # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'docs' must be placed here.

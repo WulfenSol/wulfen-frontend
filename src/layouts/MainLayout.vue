@@ -267,6 +267,7 @@ footer > .q-toolbar > p {
 }
 a {
   color: white;
+  text-decoration: none;
 }
 .navigation-link {
   color: white;
