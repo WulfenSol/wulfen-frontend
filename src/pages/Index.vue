@@ -1,11 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <div class="text-h1 text-center">
+      Welcome to the Wulfen webpage!
+    </div>
   </q-page>
 </template>
 

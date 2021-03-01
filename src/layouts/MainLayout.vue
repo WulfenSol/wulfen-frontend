@@ -2,71 +2,184 @@
   <q-layout view="lhh Lpr lFf">
     <q-header elevated reveal>
       <div class="row justify-center">
-        <q-toolbar class="col-12 col-sm-8">
-          <!-- <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        /> -->
+        <q-toolbar class="col-12 col-sm-11 col-md-8  row">
+          <div class="xs">
+            <q-btn
+              flat
+              dense
+              round
+              icon="menu"
+              aria-label="Menu"
+              @click="leftDrawerOpen = !leftDrawerOpen"
+            />
+          </div>
 
-          <q-toolbar-title shrink>Wulfen</q-toolbar-title>
+          <q-toolbar-title shrink class="col-12 col-sm-3">Wulfen</q-toolbar-title>
 
-          <q-space></q-space>
+          <!-- <q-space></q-space> -->
 
           <!-- <q-tabs inline-label no-caps align="center" class="col-6 text-white"> -->
-          <q-btn-dropdown auto-close stretch flat label="Lore">
-            <q-list>
-              <q-item clickable @click="navigate('lore/introduction')">
-                <q-item-section>Intoduction</q-item-section>
-              </q-item>
-              <q-item clickable @click="navigate('lore/heraldic-tribes')">
-                <q-item-section>Heraldic Tribes</q-item-section>
-              </q-item>
-              <q-item clickable @click="navigate('lore/shard-of-the-cosmos')">
-                <q-item-section>Shard of the Cosmos</q-item-section>
-              </q-item>
-              <q-item clickable @click="navigate('lore/birth-of-magic')">
-                <q-item-section>Birth of Magic</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn-dropdown auto-close stretch flat label="World">
-            <q-list>
-              <q-item clickable @click="navigate('world/currency')">
-                <q-item-section>Currency</q-item-section>
-              </q-item>
-              <q-item clickable @click="navigate('world/flora')">
-                <q-item-section>Flora</q-item-section>
-              </q-item>
-              <q-item clickable @click="navigate('world/fauna')">
-                <q-item-section>Fauna</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn unelevated stretch @click="navigate('design')">Design</q-btn>
-          <!-- <q-route-tab to="Photos" exact replace label="Photos" /> -->
-          <!-- </q-tabs> -->
+          <div class="gt-xs col-12 col-sm  text-center">
+            <q-btn-dropdown auto-close stretch flat label="Lore">
+              <q-list>
+                <q-item clickable @click="navigate('/lore/introduction')">
+                  <q-item-section>Intoduction</q-item-section>
+                </q-item>
+                <q-item clickable @click="navigate('/lore/heraldic-tribes')">
+                  <q-item-section>Heraldic Tribes</q-item-section>
+                </q-item>
+                <q-item clickable @click="navigate('/lore/shard-of-the-cosmos')">
+                  <q-item-section>Shard of the Cosmos</q-item-section>
+                </q-item>
+                <q-item clickable @click="navigate('/lore/birth-of-magic')">
+                  <q-item-section>Birth of Magic</q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
+            <q-btn-dropdown auto-close stretch flat label="World">
+              <q-list>
+                <q-item clickable @click="navigate('/world/currency')">
+                  <q-item-section>Currency</q-item-section>
+                </q-item>
+                <q-item clickable @click="navigate('/world/flora')">
+                  <q-item-section>Flora</q-item-section>
+                </q-item>
+                <q-item clickable @click="navigate('/world/fauna')">
+                  <q-item-section>Fauna</q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
+            <q-btn unelevated stretch @click="navigate('/design')">Design</q-btn>
+          </div>
 
-          <q-space></q-space>
+          <div class="gt-xs col-1 col-sm-2 col-md-3" />
 
-          <q-tabs>
+          <!-- <q-tabs>
             <q-route-tab align="right" to="about" exact replace label="About" />
-          </q-tabs>
+          </q-tabs> -->
         </q-toolbar>
       </div>
     </q-header>
 
-    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above>
+    <q-drawer overlay v-model="leftDrawerOpen">
       <q-list>
+        <q-item-label header class="text-grey-8">
+          Navigation
+        </q-item-label>
+        <q-item
+          clickable
+          v-ripple
+          :active="$route.path.startsWith('/lore')"
+          @click="loreNavsOpen = !loreNavsOpen"
+          active-class="navigation-link"
+        >
+          <q-item-section>Lore</q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-show="loreNavsOpen">
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/lore/introduction')"
+              @click="navigate('/lore/introduction')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Intoduction</q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/lore/heraldic-tribes')"
+              @click="navigate('/lore/heraldic-tribes')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Heraldic Tribes</q-item-section>
+            </q-item>
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/lore/shard-of-the-cosmos')"
+              @click="navigate('/lore/shard-of-the-cosmos')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Shard of the Cosmos</q-item-section>
+            </q-item>
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/lore/birth-of-magic')"
+              @click="navigate('/lore/birth-of-magic')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Birth of Magic</q-item-section>
+            </q-item>
+          </div>
+        </q-slide-transition>
+        <q-item
+          clickable
+          v-ripple
+          :active="$route.path.startsWith('/world')"
+          @click="worldNavsOpen = !worldNavsOpen"
+          active-class="navigation-link"
+        >
+          <q-item-section>World</q-item-section>
+        </q-item>
+        <q-slide-transition>
+          <div v-show="worldNavsOpen">
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/world/currency')"
+              @click="navigate('/world/currency')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Currency</q-item-section>
+            </q-item>
+
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/world/flora')"
+              @click="navigate('/world/flora')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Flora</q-item-section>
+            </q-item>
+            <q-item
+              clickable
+              v-ripple
+              :inset-level="0.5"
+              :active="$route.path.startsWith('/world/fauna')"
+              @click="navigate('/world/fauna')"
+              active-class="sub-navigation-link"
+            >
+              <q-item-section>Fauna</q-item-section>
+            </q-item>
+          </div>
+        </q-slide-transition>
+
+        <q-item
+          clickable
+          v-ripple
+          :active="$route.path.startsWith('/design')"
+          @click="navigate('/design')"
+          active-class="navigation-link"
+        >
+          <q-item-section>Design</q-item-section>
+        </q-item>
         <q-item-label header class="text-grey-8">
           Essential Links
         </q-item-label>
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
       </q-list>
-    </q-drawer> -->
+    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -74,13 +187,19 @@
 
     <q-footer class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title shrink>
+        <q-toolbar-title class="gt-xs" shrink>
           <q-avatar>
             <q-icon name="info" style="font-size:2em" />
           </q-avatar>
           Legal
         </q-toolbar-title>
         <p>{{ legalText.trim() }}</p>
+        <q-space />
+        <div class="row">
+          <q-btn v-for="link in essentialLinks" :key="link.title" flat avatar>
+            <q-icon :name="link.icon" />
+          </q-btn>
+        </div>
       </q-toolbar>
     </q-footer>
   </q-layout>
@@ -94,46 +213,22 @@ import legalText from 'assets/legal.txt';
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
     title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
+    caption: 'twitter.com/WulfenSol',
+    icon: 'fab fa-twitter',
+    link: 'twitter.com/WulfenSol',
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
+    title: 'Twitch',
+    caption: 'www.twitch.tv/wulfensol',
+    icon: 'fab fa-twitch',
+    link: 'https://www.twitch.tv/wulfensol',
   },
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
+    title: 'Discord',
+    caption: '',
+    icon: 'fab fa-discord',
+    link: 'https://discord.gg/BZYPSS4',
   },
 ];
 
@@ -143,12 +238,16 @@ export default defineComponent({
   setup() {
     const leftDrawerOpen = ref(false);
     const essentialLinks = ref(linksData);
+    const loreNavsOpen = ref(false);
+    const worldNavsOpen = ref(false);
 
-    return { leftDrawerOpen, essentialLinks, legalText };
+    return { leftDrawerOpen, essentialLinks, legalText, loreNavsOpen, worldNavsOpen };
   },
   methods: {
     navigate(tab: string) {
-      void this.$router.push('/' + tab).catch((e: Error) => {
+      this.loreNavsOpen = false;
+      this.worldNavsOpen = false;
+      void this.$router.push(tab).catch((e: Error) => {
         if (e.name !== 'NavigationDuplicated') throw e;
       });
     },
@@ -160,5 +259,13 @@ export default defineComponent({
 footer > .q-toolbar > p {
   white-space: pre-wrap;
   margin: 0;
+}
+.navigation-link {
+  color: white;
+  background: #f2c037;
+}
+.sub-navigation-link {
+  color: white;
+  background: #e09b40;
 }
 </style>

@@ -23,10 +23,12 @@
       </div>
     </div>
 
-    <q-dialog v-model="showImage" full-width full-height>
+    <q-dialog v-model="showImage" full-width>
       <q-card>
         <q-card-section v-if="imageDetails" class="row items-center q-pb-none">
-          <div class="text-h6">{{ imageDetails.title }} - Click to open in a new tab</div>
+          <div class="col-9 col-sm-10 text-h6">
+            {{ imageDetails.title }} - Click to open in a new tab
+          </div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
