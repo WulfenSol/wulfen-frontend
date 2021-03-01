@@ -219,18 +219,21 @@ const linksData = [
     caption: 'twitter.com/WulfenSol',
     icon: 'fab fa-twitter',
     link: 'https://twitter.com/WulfenSol',
+    color: '#1da1f2',
   },
   {
     title: 'Twitch',
     caption: 'www.twitch.tv/wulfensol',
     icon: 'fab fa-twitch',
     link: 'https://www.twitch.tv/wulfensol',
+    color: '#6441a5',
   },
   {
     title: 'Discord',
     caption: '',
     icon: 'fab fa-discord',
     link: 'https://discord.gg/BZYPSS4',
+    color: '#7289da',
   },
 ];
 
@@ -261,6 +264,9 @@ export default defineComponent({
 footer > .q-toolbar > p {
   white-space: pre-wrap;
   margin: 0;
+}
+a {
+  color: white;
 }
 .navigation-link {
   color: white;
