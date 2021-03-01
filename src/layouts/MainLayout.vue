@@ -196,7 +196,7 @@
         <p>{{ legalText.trim() }}</p>
         <q-space />
         <div class="row">
-          <a v-for="link in essentialLinks" :key="link.title" :to="link.link">
+          <a v-for="link in essentialLinks" :key="link.title" :href="link.link">
             <q-btn flat avatar>
               <q-icon :name="link.icon" />
             </q-btn>
