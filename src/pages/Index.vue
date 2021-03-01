@@ -1,6 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <div class="text-h1 text-center">
+    <div class="text-h2 text-center">
       Welcome to the Wulfen webpage!
     </div>
   </q-page>
