@@ -175,7 +175,7 @@
           <q-item-section>Design</q-item-section>
         </q-item>
         <q-item-label header class="text-grey-8">
-          Essential Links
+          External Links
         </q-item-label>
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
       </q-list>
