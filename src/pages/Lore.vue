@@ -23,7 +23,7 @@
           active-icon="remove_red_eye"
         >
           <q-img
-            src="/icons/Librarian_Sol_icon_gray-256.png"
+            src="icons/Librarian_Sol_icon_gray-256.png"
             spinner-color="white"
             class="inline-image"
           />
