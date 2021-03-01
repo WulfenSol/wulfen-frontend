@@ -20,9 +20,9 @@ const routes: RouteConfig[] = [
     path: '/world',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: 'currency', alias: '', component: () => import('pages/Index.vue') },
-      { path: 'fauna', component: () => import('pages/Index.vue') },
-      { path: 'flora', component: () => import('pages/Index.vue') },
+      { path: 'currency', alias: '', component: () => import('pages/World.vue') },
+      { path: 'flora', component: () => import('pages/World.vue') },
+      { path: 'fauna', component: () => import('pages/World.vue') },
     ],
   },
   // {
@@ -35,7 +35,8 @@ const routes: RouteConfig[] = [
   // but you can also remove it
   {
     path: '*',
-    component: () => import('pages/Error404.vue'),
+    // component: () => import('pages/Error404.vue'),
+    redirect: '/',
   },
 ];
 

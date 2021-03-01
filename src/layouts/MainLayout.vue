@@ -38,14 +38,15 @@
               <q-item clickable @click="navigate('world/currency')">
                 <q-item-section>Currency</q-item-section>
               </q-item>
-              <q-item clickable @click="navigate('world/fauna')">
-                <q-item-section>Fauna</q-item-section>
-              </q-item>
               <q-item clickable @click="navigate('world/flora')">
                 <q-item-section>Flora</q-item-section>
               </q-item>
+              <q-item clickable @click="navigate('world/fauna')">
+                <q-item-section>Fauna</q-item-section>
+              </q-item>
             </q-list>
           </q-btn-dropdown>
+          <q-btn unelevated stretch @click="navigate('design')">Design</q-btn>
           <!-- <q-route-tab to="Photos" exact replace label="Photos" /> -->
           <!-- </q-tabs> -->
 
@@ -144,7 +145,9 @@ export default defineComponent({
   },
   methods: {
     navigate(tab: string) {
-      void this.$router.push('/' + tab);
+      void this.$router.push('/' + tab).catch((e: Error) => {
+        if (e.name !== 'NavigationDuplicated') throw e;
+      });
     },
   },
 });

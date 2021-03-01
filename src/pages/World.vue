@@ -4,39 +4,29 @@
       <div style="height: 50px"></div>
       <q-stepper v-model="path" header-nav vertical ref="stepper" color="primary" animated>
         <q-step
-          name="/lore/introduction"
-          title="Intoduction"
-          caption="Lore"
+          name="/world/currency"
+          title="Currency"
           icon="book"
           active-icon="remove_red_eye"
         >
-          <p>{{ introduction.trim() }}</p>
+          <p>{{ currency.trim() }}</p>
           <q-stepper-navigation>
-            <q-btn @click="path = '/lore/heraldic-tribes'" color="primary" label="Continue" />
+            <q-btn @click="path = '/world/flora'" color="primary" label="Continue" />
           </q-stepper-navigation>
         </q-step>
 
-        <q-step
-          name="/lore/heraldic-tribes"
-          title="Heraldic Tribes"
-          icon="book"
-          active-icon="remove_red_eye"
-        >
+        <q-step name="/world/flora" title="Flora" icon="book" active-icon="remove_red_eye">
           <q-img
             src="/icons/Librarian_Sol_icon_gray-256.png"
             spinner-color="white"
             class="inline-image"
           />
-          <p>{{ heraldicTribes.trim() }}</p>
+          <p>{{ flora.trim() }}</p>
           <q-stepper-navigation>
-            <q-btn
-              @click="path = '/lore/shard-of-the-cosmos'"
-              color="primary"
-              label="Continue"
-            />
+            <q-btn @click="path = '/world/fauna'" color="primary" label="Continue" />
             <q-btn
               flat
-              @click="path = '/lore/introduction'"
+              @click="path = '/world/currency'"
               color="primary"
               label="Back"
               class="q-ml-sm"
@@ -44,38 +34,13 @@
           </q-stepper-navigation>
         </q-step>
 
-        <q-step
-          name="/lore/shard-of-the-cosmos"
-          title="Shard of the Cosmos"
-          icon="book"
-          active-icon="remove_red_eye"
-          id="test-test"
-        >
-          <p>{{ shardOfTheCosmos.trim() }}</p>
+        <q-step name="/world/fauna" title="Fauna" icon="book" active-icon="remove_red_eye">
+          <p>{{ fauna.trim() }}</p>
           <q-stepper-navigation>
-            <q-btn @click="path = '/lore/birth-of-magic'" color="primary" label="Continue" />
+            <q-btn color="primary" @click="path = '/lore/introduction'" label="Lore" />
             <q-btn
               flat
-              @click="path = '/lore/heraldic-tribes'"
-              color="primary"
-              label="Back"
-              class="q-ml-sm"
-            />
-          </q-stepper-navigation>
-        </q-step>
-
-        <q-step
-          name="/lore/birth-of-magic"
-          title="Birth of Magic"
-          icon="book"
-          active-icon="remove_red_eye"
-        >
-          <p>{{ birthOfMagic.trim() }}</p>
-          <q-stepper-navigation>
-            <q-btn color="primary" @click="path = '/world/currency'" label="World" />
-            <q-btn
-              flat
-              @click="path = '/lore/shard-of-the-cosmos'"
+              @click="path = '/world/flora'"
               color="primary"
               label="Back"
               class="q-ml-sm"
@@ -94,15 +59,14 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 
-import introduction from 'assets/lore/introduction.txt';
-import heraldicTribes from 'assets/lore/heraldic-tribes.txt';
-import shardOfTheCosmos from 'assets/lore/shard-of-the-cosmos.txt';
-import birthOfMagic from 'assets/lore/birth-of-magic.txt';
+import currency from 'assets/world/currency.txt';
+import flora from 'assets/world/flora.txt';
+import fauna from 'assets/world/fauna.txt';
 
 export default defineComponent({
-  name: 'LorePage',
+  name: 'WorldPage',
   setup() {
-    return { introduction, heraldicTribes, shardOfTheCosmos, birthOfMagic };
+    return { currency, flora, fauna };
   },
   computed: {
     // Use the computed 'path' to get and replace the router path.
