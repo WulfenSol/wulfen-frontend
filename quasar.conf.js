@@ -47,7 +47,7 @@ module.exports = configure(function(ctx) {
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       distDir: 'docs',
-      appBase: '/wulfen-frontend',
+      appBase: 'wulfen-frontend/',
 
       // transpile: false,
 
