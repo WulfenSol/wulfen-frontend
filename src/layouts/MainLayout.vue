@@ -195,7 +195,7 @@
         </q-toolbar-title>
         <p>{{ legalText.trim() }}</p>
         <q-space />
-        <div class="row">
+        <div class="row justify-end">
           <a v-for="link in essentialLinks" :key="link.title" :href="link.link">
             <q-btn flat avatar>
               <q-icon :name="link.icon" />
