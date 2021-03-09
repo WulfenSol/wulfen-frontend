@@ -1,7 +1,7 @@
 <template>
   <q-page>
-    <div style="min-height: 50px" class="text-content row justify-center items-start">
-      <p class="col-sm col-11 self-center text-center">{{ designText }}</p>
+    <div style="min-height: 60px" class="text-content row justify-center items-start">
+      <p class="col-sm col-11 text-h5 self-center text-center">{{ designText }}</p>
     </div>
     <div style="width: 100%" class="row justify-evenly">
       <div
