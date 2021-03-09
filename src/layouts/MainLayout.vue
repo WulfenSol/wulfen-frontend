@@ -195,7 +195,7 @@
         </q-toolbar-title>
         <p>{{ legalText.trim() }}</p>
         <q-space />
-        <div class="row justify-end">
+        <div class="row justify-end gt-tiny">
           <a v-for="link in essentialLinks" :key="link.title" :href="link.link">
             <q-btn flat avatar>
               <q-icon :name="link.icon" />
@@ -271,10 +271,16 @@ a {
 }
 .navigation-link {
   color: white;
-  background: #f2c037;
+  background: $warning;
 }
 .sub-navigation-link {
   color: white;
-  background: #e09b40;
+  background: $warning-alt;
+}
+
+@media (max-width: 500px) {
+  .gt-tiny {
+    display: none !important;
+  }
 }
 </style>
