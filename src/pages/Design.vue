@@ -3,23 +3,37 @@
     <div style="min-height: 50px" class="text-content row justify-center items-start">
       <p class="col-sm col-11 self-center text-center">{{ designText }}</p>
     </div>
-    <div style="width: 100%" class="row justify-center">
+    <div style="width: 100%" class="row justify-evenly">
       <div
-        class="col-sm-5 col-md-4 col-11 cursor-pointer"
+        class="col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenNonStar"
       >
-        <q-img :src="wulfenNonStar.src" />
+        <q-img :src="wulfenNonStar.thumb" />
       </div>
       <div
-        class="offset-sm-1 col-sm-5 col-md-4 col-11 cursor-pointer"
+        class="gt-sm col-11 col-sm-5 col-md-3 cursor-pointer"
+        @click="imageDetails = wulfenHorns"
+      >
+        <q-img :src="wulfenHorns.thumb" />
+      </div>
+      <div
+        class="col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenStarBound"
       >
-        <q-img :src="wulfenStarBound.src" />
+        <q-img :src="wulfenStarBound.thumb" />
       </div>
-    </div>
-    <div style="width: 100%" class="row justify-center">
-      <div class="col-sm-5 col-md-4 col-11 cursor-pointer" @click="imageDetails = wulfenHorns">
-        <q-img :src="wulfenHorns.src" />
+      <div
+        class="lt-md col-11 col-sm-5 col-md-3 cursor-pointer"
+        @click="imageDetails = wulfenHorns"
+      >
+        <q-img :src="wulfenHorns.thumb" />
+      </div>
+
+      <div
+        class="col-11 col-sm-9 col-md-7 cursor-pointer"
+        @click="imageDetails = wulfenMarkings"
+      >
+        <q-img :src="wulfenMarkings.thumb" />
       </div>
     </div>
 
@@ -51,21 +65,30 @@ import designText from 'assets/design.txt';
 interface imgItem {
   title: string;
   src: string;
+  thumb: string;
 }
-type DesignKeys = 'wulfenNonStar' | 'wulfenStarBound' | 'wulfenHorns';
+type DesignKeys = 'wulfenNonStar' | 'wulfenStarBound' | 'wulfenHorns' | 'wulfenMarkings';
 
 const DESIGN_IMAGES: { [k in DesignKeys]: imgItem } = {
   wulfenNonStar: {
     title: 'Wulfen (Non Star)',
     src: 'images/design/wulfen-nonstar.jpg',
+    thumb: 'images/design/wulfen-nonstar-thumb.jpg',
   },
   wulfenStarBound: {
     title: 'Wulfen (Star Bound)',
     src: 'images/design/wulfen-starbound.jpg',
+    thumb: 'images/design/wulfen-starbound-thumb.jpg',
   },
   wulfenHorns: {
     title: 'Wulfen Horns',
     src: 'images/design/wulfen-horns.png',
+    thumb: 'images/design/wulfen-horns-thumb.png',
+  },
+  wulfenMarkings: {
+    title: 'Wulfen Markings',
+    src: 'images/design/wulfen-markings.png',
+    thumb: 'images/design/wulfen-markings-thumb.png',
   },
 };
 
