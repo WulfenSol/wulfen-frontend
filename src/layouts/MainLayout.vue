@@ -14,7 +14,9 @@
             />
           </div>
 
-          <q-toolbar-title shrink class="col-12 col-sm-3">Wulfen</q-toolbar-title>
+          <q-toolbar-title shrink class="col-12 col-sm-3">
+            <span id="main-title" @click="navigate('/')">Wulfen</span>
+          </q-toolbar-title>
 
           <!-- <q-space></q-space> -->
 
@@ -23,7 +25,7 @@
             <q-btn-dropdown auto-close stretch flat label="Lore">
               <q-list>
                 <q-item clickable @click="navigate('/lore/introduction')">
-                  <q-item-section>Intoduction</q-item-section>
+                  <q-item-section>Introduction</q-item-section>
                 </q-item>
                 <q-item clickable @click="navigate('/lore/heraldic-tribes')">
                   <q-item-section>Heraldic Tribes</q-item-section>
@@ -85,7 +87,7 @@
               @click="navigate('/lore/introduction')"
               active-class="sub-navigation-link"
             >
-              <q-item-section>Intoduction</q-item-section>
+              <q-item-section>Introduction</q-item-section>
             </q-item>
 
             <q-item
@@ -268,6 +270,9 @@ footer > .q-toolbar > p {
 a {
   color: white;
   text-decoration: none;
+}
+#main-title {
+  cursor: pointer;
 }
 .navigation-link {
   color: white;

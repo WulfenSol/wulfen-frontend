@@ -5,7 +5,7 @@
       <q-stepper v-model="path" header-nav vertical ref="stepper" color="primary" animated>
         <q-step
           name="/lore/introduction"
-          title="Intoduction"
+          title="Introduction"
           caption="Lore"
           icon="book"
           active-icon="remove_red_eye"
