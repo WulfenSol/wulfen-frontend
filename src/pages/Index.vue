@@ -10,9 +10,7 @@
         <div class="text-h5 text-center">
           Here are some guidelines for the species!
         </div>
-        <p class="text-center">
-          {{ guidlines }}
-        </p>
+        <p class="text-center">{{ guidlines }}</p>
       </div>
     </div>
   </q-page>
@@ -67,7 +65,7 @@ export default defineComponent({
 }
 p {
   white-space: pre-wrap;
-  padding: 0 5px;
+  padding: 1em 5px 0;
 }
 #main-title {
   flex-grow: 1;
