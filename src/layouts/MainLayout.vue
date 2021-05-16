@@ -18,9 +18,6 @@
             <span id="main-title" @click="navigate('/')">Wulfen</span>
           </q-toolbar-title>
 
-          <!-- <q-space></q-space> -->
-
-          <!-- <q-tabs inline-label no-caps align="center" class="col-6 text-white"> -->
           <div class="gt-xs col-12 col-sm text-center">
             <q-btn-dropdown auto-close stretch flat label="Lore">
               <q-list>
@@ -56,10 +53,6 @@
           </div>
 
           <div class="gt-sm col-md-3" />
-
-          <!-- <q-tabs>
-            <q-route-tab align="right" to="about" exact replace label="About" />
-          </q-tabs> -->
         </q-toolbar>
       </div>
     </q-header>
@@ -176,6 +169,15 @@
           active-class="navigation-link"
         >
           <q-item-section>Design</q-item-section>
+        </q-item>
+        <q-item
+          clickable
+          v-ripple
+          :active="$route.path.startsWith('/gallery')"
+          @click="navigate('/gallery')"
+          active-class="navigation-link"
+        >
+          <q-item-section>Gallery</q-item-section>
         </q-item>
         <q-item-label header class="text-grey-8">
           External Links
