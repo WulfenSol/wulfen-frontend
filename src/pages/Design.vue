@@ -37,23 +37,7 @@
       </div>
     </div>
 
-    <q-dialog v-model="showImage" full-width>
-      <q-card>
-        <q-card-section v-if="imageDetails" class="row items-center q-pb-none">
-          <div class="col-9 col-sm-10 text-h6">
-            {{ imageDetails.title }} - Click to open in a new tab
-          </div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
-        </q-card-section>
-
-        <q-card-section v-if="imageDetails">
-          <a :href="imageDetails.src" target="_blank">
-            <q-img :src="imageDetails.src" />
-          </a>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
+    <image-dialog :details.sync="imageDetails"></image-dialog>
   </q-page>
 </template>
 
@@ -61,15 +45,9 @@
 import { defineComponent } from '@vue/composition-api';
 
 import designText from 'assets/design.txt';
+import ImageDialog from 'src/components/ImageDialog.vue';
 
-interface imgItem {
-  title: string;
-  src: string;
-  thumb: string;
-}
-type DesignKeys = 'wulfenNonStar' | 'wulfenStarBound' | 'wulfenHorns' | 'wulfenMarkings';
-
-const DESIGN_IMAGES: { [k in DesignKeys]: imgItem } = {
+const DESIGN_IMAGES = {
   wulfenNonStar: {
     title: 'Wulfen (Non Star)',
     src: 'images/design/wulfen-nonstar.jpg',
@@ -93,22 +71,13 @@ const DESIGN_IMAGES: { [k in DesignKeys]: imgItem } = {
 };
 
 export default defineComponent({
+  components: { ImageDialog },
   name: 'WorldPage',
   setup() {
     return { designText };
   },
-  data(): { [k in DesignKeys]: imgItem } & { imageDetails: imgItem | null } {
+  data() {
     return { imageDetails: null, ...DESIGN_IMAGES };
-  },
-  computed: {
-    showImage: {
-      get(): boolean {
-        return this.imageDetails !== null;
-      },
-      set(value: imgItem | false | null): void {
-        this.imageDetails = value || null;
-      },
-    },
   },
 });
 </script>

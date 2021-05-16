@@ -23,11 +23,9 @@ import title from 'assets/main/title.txt';
 import guidlines from 'assets/main/guidlines.txt';
 
 import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/CompositionComponent.vue';
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { ExampleComponent },
   setup() {
     const todos = ref<Todo[]>([
       {

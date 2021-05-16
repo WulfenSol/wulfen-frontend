@@ -2,7 +2,7 @@
   <q-layout view="lhh Lpr lFf">
     <q-header elevated reveal>
       <div class="row justify-center">
-        <q-toolbar class="col-12 col-sm-11 col-md-8  row">
+        <q-toolbar class="col-12 col-sm-11 row">
           <div class="xs">
             <q-btn
               flat
@@ -21,7 +21,7 @@
           <!-- <q-space></q-space> -->
 
           <!-- <q-tabs inline-label no-caps align="center" class="col-6 text-white"> -->
-          <div class="gt-xs col-12 col-sm  text-center">
+          <div class="gt-xs col-12 col-sm text-center">
             <q-btn-dropdown auto-close stretch flat label="Lore">
               <q-list>
                 <q-item clickable @click="navigate('/lore/introduction')">
@@ -52,9 +52,10 @@
               </q-list>
             </q-btn-dropdown>
             <q-btn unelevated stretch @click="navigate('/design')">Design</q-btn>
+            <q-btn unelevated stretch @click="navigate('/gallery')">Gallery</q-btn>
           </div>
 
-          <div class="gt-xs col-1 col-sm-2 col-md-3" />
+          <div class="gt-sm col-md-3" />
 
           <!-- <q-tabs>
             <q-route-tab align="right" to="about" exact replace label="About" />

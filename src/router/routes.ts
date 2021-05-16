@@ -30,6 +30,11 @@ const routes: RouteConfig[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/Design.vue') }],
   },
+  {
+    path: '/gallery',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/Gallery.vue') }],
+  },
 
   // Any other route:
   {
