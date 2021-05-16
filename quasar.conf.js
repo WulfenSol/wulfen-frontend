@@ -69,7 +69,7 @@ module.exports = configure(function(ctx) {
       extendWebpack(cfg) {
         // Add raw-loader for importing text files as string.
         cfg.module.rules.push({
-          test: /\.txt$/i,
+          test: /\.(txt|csv)$/i,
           use: [
             {
               loader: 'raw-loader',
