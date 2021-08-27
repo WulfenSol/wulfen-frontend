@@ -3,15 +3,17 @@
     <div style="min-height: 60px" class="text-content row justify-center items-start">
       <p class="col-sm col-11 text-h5 self-center text-center">{{ galleryText }}</p>
     </div>
-    <div id="gallery-row" class="row justify-center q-mx-md">
+
+    <div id="gallery-flex" class="flex justify-center q-mx-md">
       <div
         v-for="imgItem in galleryItems"
         :key="imgItem.title"
-        :class="{
-          'col-6 col-sm-3 col-md-2 col-xl-1': imgItem.ratio < 1,
-          'col-12 col-sm-6 col-md-4 col-xl-2': 1 <= imgItem.ratio && imgItem.ratio < 1.5,
-          'col-12 col-sm-9 col-md-6 col-xl-3': 1.5 <= imgItem.ratio && imgItem.ratio < 2,
-          'col-12 col-sm-12 col-md-8 col-xl-4': 2 <= imgItem.ratio,
+        :style="{
+          // Add a basis size for the element width size to be 12em times the ratio of the image's width/height,
+          // and made sure that flex grow is relative to that ratio (with no upper bound).
+          'flex': `${imgItem.ratio * 100} 0.5 ${imgItem.ratio * 12}em`,
+          // Do not allow elemnts to grow over 12em times the ratio of the image's width/height.
+          'max-width': `${imgItem.ratio * 18}em`,
         }"
       >
         <q-img
