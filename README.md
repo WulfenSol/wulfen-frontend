@@ -7,11 +7,11 @@ The Wulfen Species
 All of the image files are under `/public/images/`.
 
 All of the editable files that are not written in a programming language are under `/src/assets/`.
-For example if you want to make a change to the `fauna` section of the `world` tab, edit the file `/src/assets/world/fauna.txt`.
 
 ## editing the text in the website
 
-All of the paragraphs in the website are simply .txt files. All of the text files are located in the folder `/src/assets/`
+All of the paragraphs in the website are simply .txt files. All of the text files are located in the folder `/src/assets/`.
+For example if you want to make a change to the `fauna` section of the `world` tab, edit the file `/src/assets/world/fauna.txt`.
 
 ## Adding/editing an image for the gallery
 
