@@ -11,9 +11,11 @@
         :style="{
           // Add a basis size for the element width size to be 12em times the ratio of the image's width/height,
           // and made sure that flex grow is relative to that ratio (with no upper bound).
-          'flex': `${imgItem.ratio * 100} 0.5 ${imgItem.ratio * 12}em`,
+          'flex': `${imgItem.ratio * 100} 0.5 ${imgItem.ratio * IMAGE_MIN_HEIGHT_EM}em`,
           // Do not allow elemnts to grow over 12em times the ratio of the image's width/height.
-          'max-width': `${imgItem.ratio * 18}em`,
+          'max-width': `${imgItem.ratio * IMAGE_MAX_HEIGHT_EM}em`,
+          'min-width': '10px',
+          'margin': '0 5px',
         }"
       >
         <q-img
@@ -22,10 +24,16 @@
           :ratio="imgItem.ratio"
           @click="imageDetails = imgItem"
         />
-        <p class="text-center">
+        <p class="text-center text-content">
           {{ imgItem.title }} / {{ titles.artist }}: {{ imgItem.artist }} / {{ titles.owner }}:
           {{ imgItem.owner }}
         </p>
+        <q-tooltip>
+          "{{ imgItem.title }}"
+          {{ imgItem.owner !== imgItem.artist ? `for ${imgItem.owner},` : '' }}
+          by
+          {{ imgItem.artist }}
+        </q-tooltip>
       </div>
     </div>
 
@@ -42,8 +50,11 @@ import gallery from 'assets/gallery.csv';
 
 import ImageDialog from 'components/ImageDialog.vue';
 
-const RATIO_RE = /(\d+)(?:\s*[/:\\,-]\s*(\d+))/;
+const RATIO_RE = /^\s*(\d+)(?:\s*[/:\\,-]\s*(\d+))\s*$/;
 const DEFAULT_RATIO = 4 / 3;
+const IMAGE_MIN_HEIGHT_EM = 12;
+const IMAGE_MAX_HEIGHT_EM = 18;
+
 function parseRatio(ratioString: string) {
   const regexMatch = RATIO_RE.exec(ratioString);
   const [, width, height] = regexMatch ? regexMatch : [];
@@ -74,7 +85,7 @@ export default defineComponent({
       thumb: item[4],
       ratio: parseRatio(item[5]),
     }));
-    return { galleryText, titles, galleryItems };
+    return { galleryText, titles, galleryItems, IMAGE_MIN_HEIGHT_EM, IMAGE_MAX_HEIGHT_EM };
   },
   data() {
     return { imageDetails: null };
@@ -84,12 +95,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .text-content {
-  background-color: #00000022;
-  // min-height: 200vh;
-}
-.inline-image {
-  max-width: 150px;
-  float: left;
-  margin: 5px 15px 10px 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 </style>
