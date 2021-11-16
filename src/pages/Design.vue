@@ -3,13 +3,35 @@
     <div style="min-height: 60px" class="text-content row justify-center items-start">
       <p class="col-sm col-11 text-h5 self-center text-center">{{ designText }}</p>
     </div>
+
+    <div style="width: 100%" class="row justify-center">
+      <p class="col-11 text-h6 self-center text-center">Base Design</p>
+      <div class="col-11 col-sm-5 col-md-3 cursor-pointer" @click="imageDetails = wulfenBase">
+        <q-img :src="wulfenBase.thumb" />
+      </div>
+      <div style="width: 100%" class="row justify-center">
+        <div class="col-11 col-sm-5 col-md-3 col-lg-2">
+          <a href="images/design/wulfen-template-usever.clip">
+            <p class="text-h6 self-center text-center">Download for Clip Studio Paint</p>
+          </a>
+        </div>
+        <div class="col-11 col-sm-5 col-md-3 col-lg-2">
+          <a href="images/design/wulfen-template-usever.psd">
+            <p class="text-h6 self-center text-center">Download for Photoshop</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div style="width: 100%" class="row justify-evenly">
+      <p class="col-11 text-h6 self-center text-center">More Designes</p>
       <div
         class="col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenNonStar"
       >
         <q-img :src="wulfenNonStar.thumb" />
       </div>
+      <!-- Place wulfenHorns in the middle for wide screen -->
       <div
         class="gt-sm col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenHorns"
@@ -22,6 +44,7 @@
       >
         <q-img :src="wulfenStarBound.thumb" />
       </div>
+      <!-- Place wulfenHorns in the row bellow for less wide screen -->
       <div
         class="lt-md col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenHorns"
@@ -67,6 +90,11 @@ const DESIGN_IMAGES = {
     title: 'Wulfen Markings',
     src: 'images/design/wulfen-markings.png',
     thumb: 'images/design/wulfen-markings-thumb.png',
+  },
+  wulfenBase: {
+    title: 'Wulfen Base',
+    src: 'images/design/wulfen-base.jpg',
+    thumb: 'images/design/wulfen-base-thumb.jpg',
   },
 };
 
