@@ -6,8 +6,8 @@
 
     <div style="width: 100%" class="row justify-center">
       <p class="col-11 text-h6 self-center text-center">Base Design</p>
-      <div class="col-11 col-sm-5 col-md-3 cursor-pointer" @click="imageDetails = wulfen-base">
-        <q-img :src="wulfen-base-thumb.png" />
+      <div class="col-11 col-sm-5 col-md-3 cursor-pointer" @click="imageDetails = wulfenBase">
+        <q-img :src="wulfenBase.thumb" />
       </div>
       <div style="width: 100%" class="row justify-center">
         <div class="col-11 col-sm-5 col-md-3 col-lg-2">
@@ -93,8 +93,8 @@ const DESIGN_IMAGES = {
   },
   wulfenBase: {
     title: 'Wulfen Base',
-    src: 'images/design/wulfen-base.jpg',
-    thumb: 'images/design/wulfen-base-thumb.jpg',
+    src: 'images/design/wulfen-base.png',
+    thumb: 'images/design/wulfen-base-thumb.png',
   },
 };
 
