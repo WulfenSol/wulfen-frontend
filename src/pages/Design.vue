@@ -6,8 +6,8 @@
 
     <div style="width: 100%" class="row justify-center">
       <p class="col-11 text-h6 self-center text-center">Base Design</p>
-      <div class="col-11 col-sm-5 col-md-3 cursor-pointer" @click="imageDetails = wulfen-base.png">
-        <q-img :src="wulfen-base.png" />
+      <div class="col-11 col-sm-5 col-md-3 cursor-pointer" @click="imageDetails = wulfen-base">
+        <q-img :src="wulfen-base-thumb.png" />
       </div>
       <div style="width: 100%" class="row justify-center">
         <div class="col-11 col-sm-5 col-md-3 col-lg-2">
