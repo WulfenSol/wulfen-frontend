@@ -24,7 +24,7 @@
     </div>
 
     <div style="width: 100%" class="row justify-evenly">
-      <p class="col-11 text-h6 self-center text-center">More Designes</p>
+      <p class="col-11 text-h6 self-center text-center">More Designs</p>
       <div
         class="col-11 col-sm-5 col-md-3 cursor-pointer"
         @click="imageDetails = wulfenNonStar"
