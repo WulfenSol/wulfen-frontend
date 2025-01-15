@@ -11,12 +11,12 @@
       </div>
       <div style="width: 100%" class="row justify-center">
         <div class="col-11 col-sm-5 col-md-3 col-lg-2">
-          <a href="images/design/wulfen-template-usever.clip">
+          <a href="images/design/wulfen-template2.clip">
             <p class="text-h6 self-center text-center">Download for Clip Studio Paint</p>
           </a>
         </div>
         <div class="col-11 col-sm-5 col-md-3 col-lg-2">
-          <a href="images/design/wulfen-template-usever.psd">
+          <a href="images/design/wulfen-template2.psd">
             <p class="text-h6 self-center text-center">Download for Photoshop</p>
           </a>
         </div>
